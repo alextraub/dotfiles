@@ -12,12 +12,19 @@ dotfiles/
 ├── zsh/
 │   ├── DEPENDENCIES.md     # what to install before stowing this package
 │   └── .zshrc              # -> ~/.zshrc
-└── nvim/                   # (example)
+└── nvim/
     ├── DEPENDENCIES.md
-    └── .config/nvim/...    # -> ~/.config/nvim/...
+    └── .config/nvim/       # -> ~/.config/nvim
 ```
 
 Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to their install docs. `DEPENDENCIES.md` is never symlinked into `$HOME`.
+
+## Packages
+
+| Package | Links | Dependencies |
+|---|---|---|
+| `zsh` | `~/.zshrc` | [zsh/DEPENDENCIES.md](zsh/DEPENDENCIES.md) |
+| `nvim` | `~/.config/nvim` | [nvim/DEPENDENCIES.md](nvim/DEPENDENCIES.md) |
 
 ## Setup on a new machine
 
@@ -32,6 +39,7 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
    stow -n -v zsh   # dry run: shows the links it would create
    stow -v zsh
    ```
+5. Run any steps in the package's **After stowing** section (e.g. nvim installs its plugins on first launch).
 
 Always run `stow` from the repo root so `.stowrc` is picked up.
 
@@ -62,4 +70,5 @@ If a real file already exists at the target (e.g. a `~/.zshrc` created by an ins
 1. Create `<pkg>/` and place files at their `$HOME`-relative paths (e.g. `nvim/.config/nvim/init.lua`).
 2. Move the live config into it, then `stow -v <pkg>` (or `stow --adopt -v <pkg>` to adopt in place).
 3. Write `<pkg>/DEPENDENCIES.md`, see [AGENTS.md](AGENTS.md) for the template.
-4. Commit.
+4. Add it to the Packages table above.
+5. Commit.

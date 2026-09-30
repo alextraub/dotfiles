@@ -25,7 +25,8 @@ When asked to set up (or install) one or more packages:
    - `stow --adopt -v <pkg>` to pull the machine's version into the repo, then show `git diff` so they can review it.
    Never delete or overwrite an existing config without confirmation.
 6. Run `stow -v <pkg>` and verify links (`ls -la ~/<path>` should point into `~/dotfiles/<pkg>/`).
-7. Re-run the Verify commands and report what was installed, linked, and skipped.
+7. Run the **After stowing** section of `DEPENDENCIES.md`, if there is one.
+8. Re-run the Verify commands and report what was installed, linked, and skipped.
 
 Installers that write their own config (e.g. Oh My Zsh writing `~/.zshrc`) must be run in a mode that keeps the existing file; `DEPENDENCIES.md` notes the flags.
 
@@ -34,7 +35,7 @@ Installers that write their own config (e.g. Oh My Zsh writing `~/.zshrc`) must 
 1. `mkdir <pkg>` and move files in at their `$HOME`-relative paths, e.g. `~/.config/nvim` → `nvim/.config/nvim`.
 2. `stow -v <pkg>` to create the symlinks back.
 3. Scan the config for what it depends on (sourced files, plugins, binaries on `PATH`, fonts, language runtimes) and write `<pkg>/DEPENDENCIES.md` using the template below.
-4. Add a line to the layout example in `README.md` if helpful.
+4. Add the package to the Packages table in `README.md`.
 5. Do not commit secrets, tokens, machine-specific history files, or caches (e.g. `.zsh_history`, anything under `~/.cache`).
 
 ### DEPENDENCIES.md template
@@ -66,9 +67,15 @@ Install commands:
 ```sh
 # commands that exit 0 / print "ok" when each required dep is present
 ```
+
+## After stowing (only if needed)
+
+```sh
+# one-time steps after linking, e.g. installing plugins
+```
 ~~~
 
-Link to official install docs, not blog posts. The linked doc is the source of truth: inline commands are a convenience copy, and agents should follow the link if they conflict. Keep the "Why" column tied to a specific line or setting in the config so stale deps are easy to spot.
+Link to official install docs, not blog posts. The linked doc is the source of truth: inline commands are a convenience copy, and agents should follow the link if they conflict. Keep the "Why" column tied to a specific line or setting in the config so stale deps are easy to spot. When a plugin manager pulls in plugins (e.g. lazy.nvim), list the system tools those plugins need, taking minimum versions from each plugin's own requirements.
 
 ## Editing configs
 
