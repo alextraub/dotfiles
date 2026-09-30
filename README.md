@@ -25,6 +25,7 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 |---|---|---|
 | `zsh` | `~/.zshrc` | [zsh/DEPENDENCIES.md](zsh/DEPENDENCIES.md) |
 | `nvim` | `~/.config/nvim` | [nvim/DEPENDENCIES.md](nvim/DEPENDENCIES.md) |
+| `hyprland` | `~/.config/hypr` | [hyprland/DEPENDENCIES.md](hyprland/DEPENDENCIES.md) |
 
 ## Setup on a new machine
 
