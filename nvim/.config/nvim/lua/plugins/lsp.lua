@@ -11,7 +11,7 @@ return {
       require("mason-lspconfig").setup()
 
       vim.lsp.config("qmlls", {
-        cmd = { "qmlls", "-E" },
+        cmd = { "qmlls" },
         filetypes = { "qml", "qmljs" },
       })
     end
