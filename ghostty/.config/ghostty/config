@@ -15,7 +15,7 @@ cursor-text = cell-foreground
 custom-shader = shaders/cursor-pulse.glsl
 custom-shader-animation = true
 
-background-opacity = 0.80
+background-opacity = 0.75
 
 
 window-save-state = never

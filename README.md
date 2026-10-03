@@ -28,6 +28,9 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `hyprland` | `~/.config/hypr` | [hyprland/DEPENDENCIES.md](hyprland/DEPENDENCIES.md) |
 | `kitty` | `~/.config/kitty/kitty.conf` | [kitty/DEPENDENCIES.md](kitty/DEPENDENCIES.md) |
 | `ghostty` | `~/.config/ghostty` | [ghostty/DEPENDENCIES.md](ghostty/DEPENDENCIES.md) |
+| `vscodium` | Wisteria Dusk theme files in `~/.vscode-oss/extensions/` (stow with `--no-folding`) | [vscodium/DEPENDENCIES.md](vscodium/DEPENDENCIES.md) |
+
+`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium and Ghostty themes from it. Per-app details live in `theming/targets/`.
 
 ## Setup on a new machine
 

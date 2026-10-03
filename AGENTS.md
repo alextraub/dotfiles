@@ -7,6 +7,8 @@ This repo holds dotfiles managed by **GNU Stow**. Each top-level directory is a 
 - Repo lives at `~/dotfiles`. Always run `stow` **from the repo root**, `.stowrc` there sets `--target=~` and ignores `DEPENDENCIES.md`.
 - Every package **must** contain a `DEPENDENCIES.md`. It is documentation only and is never linked into `$HOME`.
 - Top-level files (`README.md`, `AGENTS.md`, `CLAUDE.md`, `.stowrc`) are not packages. Never run `stow .`.
+- `theming/` is not a package either. `theming/palette.json` is the single source of truth for the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim colorscheme and lualine theme, the VSCodium theme and the Ghostty theme from it (per-app mappings live in `theming/targets/`). Edit the palette or a target and rerun; never edit the generated files by hand.
+- If a package's `DEPENDENCIES.md` gives stow flags (e.g. `vscodium` needs `--no-folding`), use them for every stow command on that package, including dry runs and restows.
 
 ## Setting up a machine
 

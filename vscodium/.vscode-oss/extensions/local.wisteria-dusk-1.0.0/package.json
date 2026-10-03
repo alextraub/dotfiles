@@ -1,0 +1,22 @@
+{
+  "name": "wisteria-dusk",
+  "displayName": "Wisteria Dusk",
+  "description": "Wisteria Dusk for VSCode",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Wisteria Dusk",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wisteria-dusk-color-theme.json"
+      }
+    ]
+  }
+}
