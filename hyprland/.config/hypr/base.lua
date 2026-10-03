@@ -1,6 +1,6 @@
 local Programs = {
   TERMINAL = "ghostty",
-  FILE_MANAGER = "dolphin",
+  FILE_MANAGER = "thunar",
   MENU = "hyprlauncher"
 }
 

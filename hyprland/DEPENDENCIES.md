@@ -10,7 +10,7 @@ The config uses the Lua format (`hyprland.lua`), not the older hyprlang `hyprlan
 |---|---|---|
 | Hyprland >= 0.55 | Lua config (`hyprland.lua`, `hl.*` API) was introduced in 0.55. Tested on 0.56.2 | https://wiki.hypr.land/Getting-Started/Installation/ |
 | Ghostty | `Programs.TERMINAL` in `base.lua`, bound to `SUPER + Return` | https://ghostty.org/docs/install/binary |
-| dolphin | `Programs.FILE_MANAGER` in `base.lua`, bound to `SUPER + E` | https://apps.kde.org/dolphin/ |
+| Thunar | `Programs.FILE_MANAGER` in `base.lua`, bound to `SUPER + E` | https://docs.xfce.org/xfce/thunar/start |
 | hyprlauncher | `Programs.MENU` in `base.lua`, bound to `SUPER + Space` | https://wiki.hypr.land/Hypr-Ecosystem/hyprlauncher/ |
 | WirePlumber (`wpctl`) + PipeWire | Volume / mute keys (`XF86Audio*`) in `modules/keybinds.lua` | https://pipewire.pages.freedesktop.org/wireplumber/ |
 
@@ -18,7 +18,7 @@ Install commands (copied from the linked docs for convenience; if they disagree,
 
 ```sh
 # Arch / CachyOS
-sudo pacman -S --needed hyprland ghostty dolphin hyprlauncher pipewire wireplumber
+sudo pacman -S --needed hyprland ghostty thunar hyprlauncher pipewire wireplumber
 
 # Other distros: follow the Hyprland installation page. Most distro packages
 # lag behind and may be older than 0.55, which cannot read this config.
@@ -31,14 +31,15 @@ sudo pacman -S --needed hyprland ghostty dolphin hyprlauncher pipewire wireplumb
 | brightnessctl | Screen brightness keys (`XF86MonBrightness*`) in `modules/keybinds.lua`. Only matters on laptops | https://github.com/Hummer12007/brightnessctl |
 | playerctl | Media keys (`XF86AudioNext/Play/Pause/Prev`) in `modules/keybinds.lua` | https://github.com/altdesktop/playerctl |
 | hyprshutdown | `SUPER + SHIFT + M` uses it for a graceful exit; falls back to `hyprctl dispatch 'hl.dsp.exit()'` without it | https://github.com/hyprwm/hyprshutdown |
-| qt5ct | `QT_QPA_PLATFORMTHEME=qt5ct` in `modules/env.lua`. Without it Qt apps (e.g. dolphin) use the default theme. Qt 6 apps need qt6ct with this variable set to `qt6ct` instead | https://sourceforge.net/projects/qt5ct/ |
+| gvfs | Trash, removable drives and network locations in Thunar | https://docs.xfce.org/xfce/thunar/start |
+| qt6ct | `QT_QPA_PLATFORMTHEME=qt6ct` in `modules/env.lua`. Without it Qt apps fall back to Qt's default light theme. Pick a dark style and color scheme in `qt6ct` after installing | https://github.com/trialuser02/qt6ct |
 | qt5-wayland, qt6-wayland | `QT_QPA_PLATFORM=wayland;xcb` in `modules/env.lua`. Without them Qt apps fall back to XWayland | https://wiki.hypr.land/Getting-Started/Master-Tutorial/ |
 | xdg-desktop-portal-hyprland | Screen sharing and file pickers. Referenced (commented out) in `modules/permissions.lua` | https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/ |
 | hyprpolkitagent | Password prompts for apps that need elevated rights. Not autostarted yet; add it to `modules/autostarts.lua` | https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent/ |
 
 ```sh
 # Arch / CachyOS
-sudo pacman -S --needed brightnessctl playerctl qt5ct qt6ct qt5-wayland qt6-wayland \
+sudo pacman -S --needed brightnessctl playerctl gvfs qt6ct qt5-wayland qt6-wayland \
   xdg-desktop-portal-hyprland hyprpolkitagent
 # hyprshutdown: see its README
 ```
@@ -47,7 +48,7 @@ sudo pacman -S --needed brightnessctl playerctl qt5ct qt6ct qt5-wayland qt6-wayl
 
 ```sh
 Hyprland --version | head -1   # needs v0.55 or later
-for c in Hyprland ghostty dolphin hyprlauncher wpctl; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
+for c in Hyprland ghostty thunar hyprlauncher wpctl; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
 ```
 
 ## After stowing
