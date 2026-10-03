@@ -1,0 +1,50 @@
+command = zsh
+shell-integration = none
+confirm-close-surface = false
+
+font-family = JetBrainsMono Nerd Font
+font-size = 18
+
+# The native cursor is hidden; shaders/cursor-pulse.glsl draws it instead,
+# growing out from its center and shrinking back.
+cursor-style = block
+cursor-style-blink = false
+cursor-opacity = 0
+cursor-text = cell-foreground
+custom-shader = shaders/cursor-pulse.glsl
+custom-shader-animation = true
+
+background-opacity = 0.80
+
+# kitty's built-in default colors, so this matches the kitty package.
+background = #000000
+foreground = #dddddd
+cursor-color = #cccccc
+selection-background = #fffacd
+selection-foreground = #000000
+palette = 0=#000000
+palette = 1=#cc0403
+palette = 2=#19cb00
+palette = 3=#cecb00
+palette = 4=#0d73cc
+palette = 5=#cb1ed1
+palette = 6=#0dcdcd
+palette = 7=#dddddd
+palette = 8=#767676
+palette = 9=#f2201f
+palette = 10=#23fd00
+palette = 11=#fffd00
+palette = 12=#1a8fff
+palette = 13=#fd28ff
+palette = 14=#14ffff
+palette = 15=#ffffff
+
+window-save-state = never
+window-width = 78
+window-height = 23
+window-padding-x = 24
+window-padding-y = 24
+window-decoration = false
+window-theme = auto
+
+scrollbar = never

@@ -1,5 +1,5 @@
 local Programs = {
-  TERMINAL = "kitty",
+  TERMINAL = "ghostty",
   FILE_MANAGER = "dolphin",
   MENU = "hyprlauncher"
 }

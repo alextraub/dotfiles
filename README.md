@@ -27,6 +27,7 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `nvim` | `~/.config/nvim` | [nvim/DEPENDENCIES.md](nvim/DEPENDENCIES.md) |
 | `hyprland` | `~/.config/hypr` | [hyprland/DEPENDENCIES.md](hyprland/DEPENDENCIES.md) |
 | `kitty` | `~/.config/kitty/kitty.conf` | [kitty/DEPENDENCIES.md](kitty/DEPENDENCIES.md) |
+| `ghostty` | `~/.config/ghostty` | [ghostty/DEPENDENCIES.md](ghostty/DEPENDENCIES.md) |
 
 ## Setup on a new machine
 

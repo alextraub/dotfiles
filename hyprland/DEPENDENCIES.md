@@ -9,7 +9,7 @@ The config uses the Lua format (`hyprland.lua`), not the older hyprlang `hyprlan
 | Dependency | Why | Install docs |
 |---|---|---|
 | Hyprland >= 0.55 | Lua config (`hyprland.lua`, `hl.*` API) was introduced in 0.55. Tested on 0.56.2 | https://wiki.hypr.land/Getting-Started/Installation/ |
-| kitty | `Programs.TERMINAL` in `base.lua`, bound to `SUPER + Return` | https://sw.kovidgoyal.net/kitty/binary/ |
+| Ghostty | `Programs.TERMINAL` in `base.lua`, bound to `SUPER + Return` | https://ghostty.org/docs/install/binary |
 | dolphin | `Programs.FILE_MANAGER` in `base.lua`, bound to `SUPER + E` | https://apps.kde.org/dolphin/ |
 | hyprlauncher | `Programs.MENU` in `base.lua`, bound to `SUPER + Space` | https://wiki.hypr.land/Hypr-Ecosystem/hyprlauncher/ |
 | WirePlumber (`wpctl`) + PipeWire | Volume / mute keys (`XF86Audio*`) in `modules/keybinds.lua` | https://pipewire.pages.freedesktop.org/wireplumber/ |
@@ -18,7 +18,7 @@ Install commands (copied from the linked docs for convenience; if they disagree,
 
 ```sh
 # Arch / CachyOS
-sudo pacman -S --needed hyprland kitty dolphin hyprlauncher pipewire wireplumber
+sudo pacman -S --needed hyprland ghostty dolphin hyprlauncher pipewire wireplumber
 
 # Other distros: follow the Hyprland installation page. Most distro packages
 # lag behind and may be older than 0.55, which cannot read this config.
@@ -47,7 +47,7 @@ sudo pacman -S --needed brightnessctl playerctl qt5ct qt6ct qt5-wayland qt6-wayl
 
 ```sh
 Hyprland --version | head -1   # needs v0.55 or later
-for c in Hyprland kitty dolphin hyprlauncher wpctl; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
+for c in Hyprland ghostty dolphin hyprlauncher wpctl; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
 ```
 
 ## After stowing
