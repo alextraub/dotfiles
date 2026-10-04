@@ -28,4 +28,5 @@ require("modules.inputs")
 require("modules.keybinds")
 require("modules.misc")
 require("modules.rules")
+require("modules.roles")
 

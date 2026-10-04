@@ -7,6 +7,8 @@ import qs.services
 PanelWindow {
   id: statusBar
 
+  // True on whichever screen currently has the "main" role, follows SUPER + X swaps
+  readonly property bool isMain: MonitorRoles.isMain(screen)
 
   anchors { top: true; left: true; right: true }
   margins { top: Theme.margin; left: Theme.margin; right: Theme.margin }
