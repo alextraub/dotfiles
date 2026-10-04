@@ -2,7 +2,7 @@ local M = {}
 
 -- Rules are written against roles rather than physical monitors, so swapping the
 -- roles (modules/swap.lua) makes the screens trade places completely.
--- These are the defaults; a swap flips them and is remembered across restarts.
+-- These are the defaults; a swap flips them until the next login (see hyprland.start below).
 local DEFAULT = {
   main = "desc:ASUSTek COMPUTER INC PG27AQDM S3LMRS014609",
   side = "desc:Microstep MAG274QRF-QD CA8A291700643",
@@ -44,6 +44,20 @@ local function nameFor(role)
   return mon and mon.name
 end
 
+-- The k-th workspace of the left or right screen, out of whichever role's
+-- workspaces that screen holds right now (so it follows swaps).
+-- With a single screen, `fallback` is used as is
+M.screenWorkspace = function(screen, k, fallback)
+  local mons = hl.get_monitors()
+  if #mons < 2 then return fallback end
+  table.sort(mons, function(a, b) return a.position.x < b.position.x end)
+  local name = (screen == "right") and mons[#mons].name or mons[1].name
+  for role, ids in pairs(WORKSPACES) do
+    if nameFor(role) == name then return ids[k] end
+  end
+  return fallback
+end
+
 local function writeState()
   os.execute(string.format("mkdir -p '%s'", STATE_DIR))
   local f = io.open(STATE_FILE, "w")
@@ -80,6 +94,15 @@ M.toggle = function()
 end
 
 M.apply()
+
+-- A swap only lasts for the session: a fresh login starts with the default roles,
+-- while config reloads keep the current swap. awww restores the swapped wallpapers
+-- from its cache, so they are traded back too
+hl.on("hyprland.start", function()
+  if not M.swapped then return end
+  M.toggle()
+  require("modules.swap").swapWallpapers()
+end)
 
 -- Monitors aren't connected yet while the config first loads, so refresh the
 -- connector names once they appear, and again when one is unplugged

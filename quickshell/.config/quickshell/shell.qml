@@ -10,11 +10,10 @@ ShellRoot {
     model: Quickshell.screens
 
     Scope {
-      id: screen
-
+      id: self
       required property var modelData
 
-      StatusBar { screen: screen.modelData }
+      StatusBar { screen: self.modelData }
     }
   }
 }

@@ -61,4 +61,15 @@ M.swapMonitors = function()
   ))
 end
 
+-- Trades the wallpapers of the two screens instantly, once awww-daemon is up and has
+-- restored its cache. Used at login to undo a swap left over from the last session
+M.swapWallpapers = function()
+  hl.exec_cmd(string.format(
+    [[%s; for _ in $(seq 50); do awww query >/dev/null 2>&1 && break; sleep 0.2; done; awww restore; ]] ..
+    [[set -- $(awww query | sed -n 's/^: \([^:]*\): .*/\1/p'); [ $# -eq 2 ] || exit; ]] ..
+    [[A="$(wp $1)"; B="$(wp $2)"; awww img --transition-type none -o $1 "$B" & awww img --transition-type none -o $2 "$A" & wait]],
+    wallpaperOf
+  ))
+end
+
 return M

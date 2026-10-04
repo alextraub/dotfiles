@@ -32,6 +32,7 @@ PanelWindow {
     spacing: Theme.spacing
     
     ClockPill {}
+    Workspaces { screen: statusBar.screen }
   }
 
   Row {
