@@ -75,7 +75,7 @@ end
 M.apply = function()
   for role, ids in pairs(WORKSPACES) do
     for i, id in ipairs(ids) do
-      hl.workspace_rule({ workspace = tostring(id), monitor = M.monitorFor(role), default = (i == 1) })
+      hl.workspace_rule({ workspace = tostring(id), monitor = M.monitorFor(role), default = (i == 1), persistent = true })
     end
   end
   for i, app in ipairs(APPS) do
