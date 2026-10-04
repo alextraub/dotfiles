@@ -1,2 +1,3 @@
 --target=~
 --ignore=DEPENDENCIES\.md
+--ignore=\.qmlls\.ini

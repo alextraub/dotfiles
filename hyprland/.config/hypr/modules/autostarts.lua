@@ -4,8 +4,9 @@
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("pipeweaver-daemon --background & beacn-utility --background")
-  hl.exec_cmd("awww-daemon & waybar & swaync")
-  hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+  hl.exec_cmd("hypridle")
+  hl.exec_cmd("pipeweaver-daemon --background")
+  hl.exec_cmd("awww-daemon & qs & swaync")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
 

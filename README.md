@@ -8,7 +8,7 @@ Each top-level directory is a **stow package**. Its contents mirror the paths th
 
 ```
 dotfiles/
-├── .stowrc                 # default stow options (target ~, ignore DEPENDENCIES.md)
+├── .stowrc                 # default stow options (target ~, ignore DEPENDENCIES.md and .qmlls.ini)
 ├── zsh/
 │   ├── DEPENDENCIES.md     # what to install before stowing this package
 │   └── .zshrc              # -> ~/.zshrc
@@ -27,9 +27,10 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `nvim` | `~/.config/nvim` | [nvim/DEPENDENCIES.md](nvim/DEPENDENCIES.md) |
 | `hyprland` | `~/.config/hypr` | [hyprland/DEPENDENCIES.md](hyprland/DEPENDENCIES.md) |
 | `ghostty` | `~/.config/ghostty` | [ghostty/DEPENDENCIES.md](ghostty/DEPENDENCIES.md) |
+| `quickshell` | `~/.config/quickshell` | [quickshell/DEPENDENCIES.md](quickshell/DEPENDENCIES.md) |
 | `vscodium` | Wisteria Dusk theme files in `~/.vscode-oss/extensions/` (stow with `--no-folding`) | [vscodium/DEPENDENCIES.md](vscodium/DEPENDENCIES.md) |
 
-`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium and Ghostty themes from it. Per-app details live in `theming/targets/`.
+`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium and Ghostty themes and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
 
 ## Setup on a new machine
 
