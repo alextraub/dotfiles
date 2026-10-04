@@ -36,3 +36,8 @@ function byKey(icons, fallback, overrides) {
 }
 
 const volume = byThreshold([0.01, 0.5], ["volume_mute", "volume_down", "volume_up"], { muted: "volume_off" })
+const wifi = byThreshold([0.2, 0.4, 0.6, 0.8],
+  ["signal_wifi_0_bar", "network_wifi_1_bar", "network_wifi_2_bar", "network_wifi_3_bar", "signal_wifi_4_bar"],
+  { disabled: "wifi_off", disconnected: "signal_wifi_statusbar_not_connected" })
+const wired = byKey({}, "lan", { disconnected: "signal_disconnected" })
+const media = byKey({ playing: "play_arrow", paused: "pause" }, "music_note")

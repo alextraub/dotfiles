@@ -15,7 +15,11 @@ Singleton {
   readonly property int shadowRoom: 24
 
   readonly property string font: "JetBrainsMono Nerd Font Propo"
-  readonly property string iconFont: "Material Symbols Rounded"
+  readonly property var iconFonts: ({
+    "rounded": "Material Symbols Rounded",
+    "outlined": "Material Symbols Outlined",
+    "sharp": "Material Symbols Sharp"
+  })
 
   readonly property int txtMd: 15
   readonly property int txtSm: 13

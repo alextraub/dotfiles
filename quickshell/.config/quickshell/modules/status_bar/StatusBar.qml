@@ -21,6 +21,8 @@ PanelWindow {
     anchors.left: parent.left
     anchors.leftMargin: Theme.spacing
     spacing: Theme.spacing
+
+    MediaPill {}
   }
 
   Row {
@@ -35,6 +37,7 @@ PanelWindow {
     anchors.rightMargin: Theme.spacing
     spacing: Theme.spacing
 
+    NetworkPill {}
     VolumePill {}
   }
 }
