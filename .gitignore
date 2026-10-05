@@ -1,3 +1,4 @@
 # Machine-specific Hyprland overrides, see hyprland/.config/hypr/settings.lua
 hyprland/.config/hypr/locals.lua
 quickshell/.config/quickshell/.qmlls.ini
+__pycache__

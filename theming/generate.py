@@ -10,6 +10,9 @@ app and adds whatever else that app needs:
     targets/vscodium.py  the VSCodium color theme JSON
     targets/ghostty.py   the Ghostty theme
     targets/quickshell.py  config/colors.json and config/Colors.qml for Quickshell
+    targets/vicinae.py   the Vicinae launcher theme
+    targets/hyprland.py  modules/colors.lua for Hyprland
+    targets/zen.py       userChrome.css and userContent.css for Zen Browser
 
 Generated files are overwritten on every run, so edit the palette or the
 target module, never the output.
@@ -23,12 +26,12 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import ghostty, nvim, quickshell, vscodium  # noqa: E402
+from targets import ghostty, hyprland, nvim, quickshell, vscodium  # noqa: E402
 
 
 def main():
     c = palette.load()
-    for target in (nvim, vscodium, ghostty, quickshell):
+    for target in (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen):
         for path, content in target.build(c).items():
             out = REPO / path
             out.parent.mkdir(parents=True, exist_ok=True)
