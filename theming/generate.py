@@ -16,6 +16,7 @@ app and adds whatever else that app needs:
     targets/qtct.py      the qt5ct and qt6ct color schemes for Qt apps
     targets/gtk.py       GTK 3 and GTK 4 gtk.css color overrides
     targets/kde.py       the KDE color scheme for KDE apps
+    targets/zsh.py       ~/.dircolors and the Oh My Zsh prompt theme
 
 Generated files are overwritten on every run, so edit the palette or the
 target module, never the output.
@@ -29,12 +30,12 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import ghostty, gtk, hyprland, kde, nvim, qtct, quickshell, vicinae, vscodium, zen  # noqa: E402
+from targets import ghostty, gtk, hyprland, kde, nvim, qtct, quickshell, vicinae, vscodium, zen, zsh  # noqa: E402
 
 
 def main():
     c = palette.load()
-    for target in (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qtct, gtk, kde):
+    for target in (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qtct, gtk, kde, zsh):
         for path, content in target.build(c).items():
             out = REPO / path
             out.parent.mkdir(parents=True, exist_ok=True)

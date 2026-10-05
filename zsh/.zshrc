@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="wisteria-dusk"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,6 +81,10 @@ plugins=(
 
 # Enable both history and completion strategies
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Wisteria Dusk LS_COLORS. Loaded here, before oh-my-zsh, so it replaces any
+# LS_COLORS inherited from a parent shell and completion menus pick it up too.
+[[ -r ~/.dircolors ]] && (( $+commands[dircolors] )) && source <(dircolors -b ~/.dircolors)
 
 source $ZSH/oh-my-zsh.sh
 
