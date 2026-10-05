@@ -9,13 +9,13 @@ return {
     c = { bg = "#19191f", fg = "#e7e2e3" },
   },
   insert = {
-    a = { bg = "#94e997", fg = "#19191f", gui = "bold" },
-    b = { bg = "#292930", fg = "#94e997" },
+    a = { bg = "#9ff8a5", fg = "#19191f", gui = "bold" },
+    b = { bg = "#292930", fg = "#9ff8a5" },
     c = { bg = "#19191f", fg = "#e7e2e3" },
   },
   terminal = {
-    a = { bg = "#94e997", fg = "#19191f", gui = "bold" },
-    b = { bg = "#292930", fg = "#94e997" },
+    a = { bg = "#9ff8a5", fg = "#19191f", gui = "bold" },
+    b = { bg = "#292930", fg = "#9ff8a5" },
     c = { bg = "#19191f", fg = "#e7e2e3" },
   },
   command = {

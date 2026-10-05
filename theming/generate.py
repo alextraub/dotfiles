@@ -13,6 +13,8 @@ app and adds whatever else that app needs:
     targets/vicinae.py   the Vicinae launcher theme
     targets/hyprland.py  modules/colors.lua for Hyprland
     targets/zen.py       userChrome.css and userContent.css for Zen Browser
+    targets/qt6ct.py     the qt6ct color scheme for Qt apps
+    targets/gtk.py       GTK 3 and GTK 4 gtk.css color overrides
 
 Generated files are overwritten on every run, so edit the palette or the
 target module, never the output.
@@ -26,12 +28,12 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import ghostty, hyprland, nvim, quickshell, vicinae, vscodium, zen  # noqa: E402
+from targets import ghostty, gtk, hyprland, nvim, qt6ct, quickshell, vicinae, vscodium, zen  # noqa: E402
 
 
 def main():
     c = palette.load()
-    for target in (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen):
+    for target in (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qt6ct, gtk):
         for path, content in target.build(c).items():
             out = REPO / path
             out.parent.mkdir(parents=True, exist_ok=True)

@@ -73,5 +73,5 @@ selection = { outline = "#bb92e9" }
 background = "#42424d"
 
 [colors.loading]
-bar = "#bb92e9"
+bar = "#9ff8a5"
 spinner = "#e7e2e3"

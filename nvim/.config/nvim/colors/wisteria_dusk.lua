@@ -26,7 +26,7 @@ local groups = {
   CursorLine    = { bg = "#25252c" },
   CursorColumn  = { bg = "#19191f" },
   ColorColumn   = { bg = "#292930" },
-  CursorLineNr  = { fg = "#bb92e9" },
+  CursorLineNr  = { fg = "#9ff8a5" },
   LineNr        = { fg = "#42424d" },
   SignColumn    = { fg = "#33333c" },
   FoldColumn    = { fg = "#68666c" },

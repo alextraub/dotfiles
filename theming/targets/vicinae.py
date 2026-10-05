@@ -81,7 +81,7 @@ def build(c):
             "background": q(c.surface2),
         },
         "colors.loading": {
-            "bar": q(c.lavender),
+            "bar": q(c.mint),
             "spinner": q(c.text),
         },
     }

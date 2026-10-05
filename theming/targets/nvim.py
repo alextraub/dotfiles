@@ -32,7 +32,7 @@ def groups(c):
       "CursorLine":       { "bg": cursorline },
       "CursorColumn":     { "bg": c.mantle },
       "ColorColumn":      { "bg": c.surface0 },
-      "CursorLineNr":     { "fg": c.lavender },
+      "CursorLineNr":     { "fg": c.mint },
       "LineNr":           { "fg": c.surface2 },
       "SignColumn":       { "fg": c.surface1 },
       "FoldColumn":       { "fg": c.overlay0 },
@@ -313,8 +313,8 @@ def lualine(c):
 
     return {
         "normal": mode(c.lavender),
-        "insert": mode(c.green),
-        "terminal": mode(c.green),
+        "insert": mode(c.mint),
+        "terminal": mode(c.mint),
         "command": mode(c.peach),
         "visual": mode(c.blue),
         "replace": mode(c.red),

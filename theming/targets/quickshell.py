@@ -25,6 +25,7 @@ def build(c):
         "orange": c.peach,
         "yellow": c.yellow,
         "green": c.green,
+        "mint": c.mint,
         "aqua": c.teal,
         "blue": c.blue,
         "purple": c.lavender,

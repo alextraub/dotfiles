@@ -62,7 +62,7 @@
     "sky": "operators (sky)",
     "teal": "characters, hints (teal)",
     "green": "strings (green), softened phosphor mint",
-    "mint": "cursor, success",
+    "mint": "sparing highlight for where you are right now: cursor, current line number, active tab marker, insert mode, loading, success",
     "yellow": "types (yellow)",
     "ochre": "modules, attributes",
     "peach": "numbers, constants (peach)",
