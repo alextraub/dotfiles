@@ -1,7 +1,7 @@
 local Programs = {
   TERMINAL = "ghostty",
   FILE_MANAGER = "thunar",
-  MENU = "hyprlauncher"
+  MENU = "vicinae toggle"
 }
 
 return {

@@ -2,6 +2,7 @@ local Programs = require("settings").Programs
 local zoomBy = require("modules.zoom").zoomBy
 local swapMonitors = require("modules.swap").swapMonitors
 local screenWorkspace = require("modules.roles").screenWorkspace
+local toggleLauncher = require("modules.launcher").toggle
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(mainMod .. " + equal", zoomBy(0.5),  { repeating = true })
@@ -16,10 +17,22 @@ hl.bind(mainMod .. " + SHIFT  + M", hl.dsp.exec_cmd("command -v hyprshutdown >/d
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(Programs.FILE_MANAGER))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(Programs.MENU))
+hl.bind(mainMod .. " + Space", toggleLauncher)
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + X", swapMonitors)
+
+-- Screenshot the monitor under the cursor: saved to ~/Pictures/Screenshots and copied to the clipboard
+hl.bind(mainMod .. " + Print", function()
+  local monitor = hl.get_monitor_at_cursor()
+  if not monitor then return end
+  hl.exec_cmd(string.format(
+    [[dir="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")/Screenshots"; mkdir -p "$dir"; ]] ..
+    [[f="$dir/$(date +%%Y-%%m-%%d_%%H-%%M-%%S).png"; grim -o '%s' "$f" && wl-copy < "$f" && ]] ..
+    [[notify-send -i "$f" "Screenshot saved" "$(basename "$f")"]],
+    monitor.name
+  ))
+end)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
