@@ -38,7 +38,7 @@ sudo dnf install vicinae
 
 | Dependency | Why | Install docs |
 |---|---|---|
-| Python 3 | Only to regenerate the theme with `python3 theming/generate.py` after editing `theming/palette.json` | https://www.python.org/downloads/ |
+| Python 3 | Only to regenerate the theme with `python3 theming/generate.py` after editing a theme in `theming/themes/` | https://www.python.org/downloads/ |
 
 ## Verify
 

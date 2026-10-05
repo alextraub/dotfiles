@@ -38,7 +38,9 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `kde` | Wisteria Dusk color scheme in `~/.local/share/color-schemes/` (stow with `--no-folding`) | [kde/DEPENDENCIES.md](kde/DEPENDENCIES.md) |
 | `btop` | Wisteria Dusk theme in `~/.config/btop/themes/` (stow with `--no-folding`) | [btop/DEPENDENCIES.md](btop/DEPENDENCIES.md) |
 
-`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium, Ghostty, Vicinae, Zen, qt5ct, qt6ct, GTK and KDE themes, `~/.dircolors`, the zsh prompt theme and the btop theme, the Hyprland `modules/colors.lua` and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
+`theming/` is not a package. `theming/themes/` holds one JSON file per theme (currently Wisteria Dusk), and `python3 theming/generate.py --theme <slug>` writes the Neovim, VSCodium, Ghostty, Vicinae, Zen, qt5ct, qt6ct, GTK and KDE themes, `~/.dircolors`, the zsh prompt theme and the btop theme, the Hyprland `modules/colors.lua` and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
+
+To add a theme, copy `theming/themes/wisteria-dusk.json`, change its name and colors, and point every role at one of your colors. `theming/palette.py` lists the roles and what each is used for, and the generator stops with a list of anything missing. Theme-named outputs (btop, Ghostty, Neovim, qt5ct/qt6ct, KDE, Vicinae, VSCodium, Zen, the zsh prompt) sit next to the other themes' and are picked in each app; `gtk.css`, Hyprland `colors.lua`, Quickshell's colors and `.dircolors` always hold the theme generated last.
 
 ## Setup on a new machine
 

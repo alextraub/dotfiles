@@ -74,7 +74,7 @@ Rectangle {
 
           color: {
             if (parent.modelData.urgent) return Colors.yellow
-            if (parent.modelData.active) return Colors.mint
+            if (parent.modelData.active) return Colors.marker
             if (parent.busy) return Colors.fg
             return Colors.bg3
           }

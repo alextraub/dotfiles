@@ -1,5 +1,6 @@
 {
   "name": "Wisteria Dusk",
+  "variant": "dark",
   "neutrals": {
     "crust": "#131318",
     "mantle": "#19191f",
@@ -15,7 +16,7 @@
     "text": "#e7e2e3",
     "bright": "#fffeff"
   },
-  "accents": {
+  "colors": {
     "lavender": "#bb92e9",
     "lilac": "#cdd0fe",
     "blue": "#81b7fd",
@@ -32,6 +33,49 @@
     "pink": "#feaddb",
     "flamingo": "#f3c8ca",
     "oxblood": "#8d0808"
+  },
+  "roles": {
+    "accent": "lavender",
+    "secondary": "blue",
+    "marker": "mint",
+    "link": "blue",
+    "visited": "lavender",
+    "search": "sky",
+    "urgent": "oxblood",
+    "error": "red",
+    "warning": "yellow",
+    "info": "sky",
+    "hint": "teal",
+    "success": "green",
+    "added": "green",
+    "changed": "blue",
+    "removed": "red",
+    "modified": "ochre",
+    "keyword": "lavender",
+    "property": "lilac",
+    "function": "blue",
+    "label": "sapphire",
+    "operator": "sky",
+    "character": "teal",
+    "string": "green",
+    "type": "yellow",
+    "module": "ochre",
+    "constant": "peach",
+    "parameter": "maroon",
+    "builtin": "red",
+    "special": "pink",
+    "identifier": "flamingo",
+    "hue": {
+      "red": "red",
+      "orange": "peach",
+      "yellow": "yellow",
+      "green": "green",
+      "teal": "teal",
+      "cyan": "sky",
+      "blue": "blue",
+      "purple": "lavender",
+      "pink": "pink"
+    }
   },
   "terminal": {
     "background": "#000000",
@@ -53,23 +97,5 @@
       "#7ee2da",
       "#fffeff"
     ]
-  },
-  "roles": {
-    "lavender": "keywords (mauve)",
-    "lilac": "properties, fields (lavender), periwinkle",
-    "blue": "functions (blue)",
-    "sapphire": "labels (sapphire)",
-    "sky": "operators (sky)",
-    "teal": "characters, hints (teal)",
-    "green": "strings (green), softened phosphor mint",
-    "mint": "sparing highlight for where you are right now: cursor, current line number, active tab marker, insert mode, loading, success",
-    "yellow": "types (yellow)",
-    "ochre": "modules, attributes",
-    "peach": "numbers, constants (peach)",
-    "maroon": "parameters (maroon)",
-    "red": "errors, builtins (red)",
-    "pink": "escapes, macros, special (pink)",
-    "flamingo": "identifiers, todo (flamingo)",
-    "oxblood": "urgent backgrounds"
   }
 }
