@@ -32,9 +32,10 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `vscodium` | Wisteria Dusk theme files in `~/.vscode-oss/extensions/` (stow with `--no-folding`) | [vscodium/DEPENDENCIES.md](vscodium/DEPENDENCIES.md) |
 | `zen` | Wisteria Dusk browser theme in `~/.config/zen/wisteria-dusk/`, then linked into the Zen profile (stow with `--no-folding`) | [zen/DEPENDENCIES.md](zen/DEPENDENCIES.md) |
 | `qt6ct` | Wisteria Dusk color scheme in `~/.config/qt6ct/colors/` (stow with `--no-folding`) | [qt6ct/DEPENDENCIES.md](qt6ct/DEPENDENCIES.md) |
+| `qt5ct` | Wisteria Dusk color scheme in `~/.config/qt5ct/colors/` (stow with `--no-folding`) | [qt5ct/DEPENDENCIES.md](qt5ct/DEPENDENCIES.md) |
 | `gtk` | Wisteria Dusk `gtk.css` in `~/.config/gtk-3.0/` and `~/.config/gtk-4.0/` (stow with `--no-folding`) | [gtk/DEPENDENCIES.md](gtk/DEPENDENCIES.md) |
 
-`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium, Ghostty, Vicinae, Zen, qt6ct and GTK themes, the Hyprland `modules/colors.lua` and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
+`theming/` is not a package. `theming/palette.json` holds the Wisteria Dusk colors, and `python3 theming/generate.py` writes the Neovim, VSCodium, Ghostty, Vicinae, Zen, qt5ct, qt6ct and GTK themes, the Hyprland `modules/colors.lua` and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
 
 ## Setup on a new machine
 

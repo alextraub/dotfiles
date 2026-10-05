@@ -1,6 +1,6 @@
 # qt6ct dependencies
 
-Stowing this package links one file, the generated Wisteria Dusk color scheme at `~/.config/qt6ct/colors/wisteria-dusk.conf`. `~/.config/qt6ct/qt6ct.conf` is deliberately not in this package: qt6ct rewrites it (including window geometry) whenever a setting changes in the GUI. Install the following first.
+Stowing this package links one file, the generated Wisteria Dusk color scheme at `~/.config/qt6ct/colors/wisteria-dusk.conf`, written by `theming/targets/qtct.py` alongside the `qt5ct` one. `~/.config/qt6ct/qt6ct.conf` is deliberately not in this package: qt6ct rewrites it (including window geometry) whenever a setting changes in the GUI. Install the following first.
 
 **Always stow this package with `--no-folding`:**
 
