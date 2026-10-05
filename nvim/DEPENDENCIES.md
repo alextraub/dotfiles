@@ -35,7 +35,7 @@ brew install neovim git ripgrep fd
 
 | Dependency | Why | Install docs |
 |---|---|---|
-| Nerd Font (>= 3.3), set as the terminal font | Icons from nvim-web-devicons in lualine and Telescope render as boxes without it | https://www.nerdfonts.com/ · https://github.com/nvim-tree/nvim-web-devicons#requirements |
+| Nerd Font (>= 3.3), set as the terminal font | Icons from mini.icons in lualine, Telescope, oil and which-key render as boxes without it | https://www.nerdfonts.com/ · https://github.com/nvim-mini/mini.icons |
 | fd | Faster `find_files` in Telescope. On Debian/Ubuntu the binary is `fdfind` | https://github.com/sharkdp/fd#installation |
 | luarocks | lazy.nvim uses it for plugins with rockspecs; none of the current plugins need it, but `:checkhealth lazy` warns without it | https://lazy.folke.io/#%EF%B8%8F-requirements |
 | qmlls (from Qt 6 Declarative) | QML language server configured in `lua/plugins/lsp.lua`. Not installed through Mason. On Arch it comes from `qt6-declarative` at `/usr/lib/qt6/bin/qmlls`, which is not on `PATH` by default | https://doc.qt.io/qt-6/qtqml-tooling-qmlls.html |

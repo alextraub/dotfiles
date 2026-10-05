@@ -14,6 +14,23 @@ return {
         cmd = { "qmlls" },
         filetypes = { "qml", "qmljs" },
       })
+
+      vim.o.autocomplete = true
     end
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the documentation for more options
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   }
 }
