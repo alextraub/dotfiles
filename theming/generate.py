@@ -26,7 +26,7 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import ghostty, hyprland, nvim, quickshell, vscodium  # noqa: E402
+from targets import ghostty, hyprland, nvim, quickshell, vscodium, zen  # noqa: E402
 
 
 def main():
