@@ -24,6 +24,7 @@ PanelWindow {
     anchors.leftMargin: Theme.spacing
     spacing: Theme.spacing
 
+    LauncherButton {}
     MediaPill {}
   }
 

@@ -16,4 +16,6 @@ ShellRoot {
       StatusBar { screen: self.modelData }
     }
   }
+  
+  IpcWrapper {}
 }
