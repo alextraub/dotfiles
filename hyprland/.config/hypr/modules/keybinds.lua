@@ -28,7 +28,9 @@ hl.bind(mainMod .. " + Print", function()
   if not monitor then return end
   hl.exec_cmd(string.format(
     [[dir="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")/Screenshots"; mkdir -p "$dir"; ]] ..
-    [[f="$dir/$(date +%%Y-%%m-%%d_%%H-%%M-%%S).png"; grim -o '%s' "$f" && wl-copy < "$f" && ]] ..
+    [[base="$dir/$(date +%%Y-%%m-%%d_%%H:%%M)"; f="$base.png"; n=2; ]] ..
+    [[while [ -e "$f" ]; do f="${base}_$n.png"; n=$((n+1)); done; ]] ..
+    [[grim -o '%s' "$f" && wl-copy < "$f" && ]] ..
     [[notify-send -i "$f" "Screenshot saved" "$(basename "$f")"]],
     monitor.name
   ))

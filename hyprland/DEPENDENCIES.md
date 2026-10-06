@@ -47,6 +47,7 @@ yay -S vicinae-bin   # AUR, or any AUR helper
 | xdg-desktop-portal-hyprland | Screen sharing and file pickers. Referenced (commented out) in `modules/permissions.lua` | https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/ |
 | pipeweaver | `pipeweaver-daemon --background` in `modules/autostarts.lua` (audio routing). Only needed if you use it; AUR on Arch | https://github.com/pipeweaver/pipeweaver |
 | wlogout | Power menu on `SUPER + M` in `modules/keybinds.lua` | https://github.com/ArtsyMacaw/wlogout |
+| grim | `SUPER + Print` in `modules/keybinds.lua` saves a full-resolution screenshot of the monitor under the cursor to `~/Pictures/Screenshots/YYYY-MM-dd_HH:mm.png` | https://gitlab.freedesktop.org/emersion/grim |
 | wl-clipboard (`wl-copy`) | Copies that screenshot to the clipboard | https://github.com/bugaevc/wl-clipboard |
 | libnotify (`notify-send`) | "Screenshot saved" notification for that screenshot | https://gitlab.gnome.org/GNOME/libnotify |
 | xdg-user-dirs | Finds the Pictures folder for screenshots (`~/Pictures/Screenshots`); falls back to `~/Pictures` without it | https://www.freedesktop.org/wiki/Software/xdg-user-dirs/ |
@@ -55,7 +56,7 @@ yay -S vicinae-bin   # AUR, or any AUR helper
 ```sh
 # Arch / CachyOS
 sudo pacman -S --needed brightnessctl playerctl gvfs qt6ct qt5-wayland qt6-wayland \
-  xdg-desktop-portal-hyprland wlogout hyprpaper wl-clipboard libnotify xdg-user-dirs
+  xdg-desktop-portal-hyprland wlogout hyprpaper grim wl-clipboard libnotify xdg-user-dirs
 yay -S pipeweaver   # AUR, or any AUR helper
 # hyprshutdown: see its README
 ```
