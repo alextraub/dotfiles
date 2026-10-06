@@ -2,3 +2,14 @@
 hyprland/.config/hypr/locals.lua
 quickshell/.config/quickshell/.qmlls.ini
 __pycache__
+
+# Vesktop writes session data and logins next to its config; only track the
+# package's own files (git can't re-include a file whose parent dir is ignored,
+# so each level is re-included explicitly)
+vesktop/*
+!vesktop/DEPENDENCIES.md
+!vesktop/.config/
+vesktop/.config/*
+!vesktop/.config/vesktop/
+vesktop/.config/vesktop/*
+!vesktop/.config/vesktop/themes/
