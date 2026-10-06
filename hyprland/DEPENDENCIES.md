@@ -12,6 +12,7 @@ The config uses the Lua format (`hyprland.lua`), not the older hyprlang `hyprlan
 | Ghostty | `Programs.TERMINAL` in `base.lua`, bound to `SUPER + Return` | https://ghostty.org/docs/install/binary |
 | Thunar | `Programs.FILE_MANAGER` in `base.lua`, bound to `SUPER + E` | https://docs.xfce.org/xfce/thunar/start |
 | Vicinae | `vicinae server` autostarted in `modules/autostarts.lua`; opened and closed by the `SUPER + Space` toggle in `modules/launcher.lua`, which also places it at the cursor and closes it on outside clicks. That needs `"launcher_window": { "layer_shell": { "enabled": false } }` in `~/.config/vicinae/settings.json` (not tracked). AUR on Arch (`vicinae-bin`) | https://vicinae.com/docs |
+| KWallet (`kwalletd6`) + kwallet-pam | Started via `/usr/lib/pam_kwallet_init` before `vicinae server` in `modules/autostarts.lua`: Vicinae stores secrets through the D-Bus Secret Service and aborts at startup (`Database keychain unavailable`) without one. kwallet-pam unlocks the wallet with the login password (needs `pam_kwallet5.so` in the login manager's PAM file, which SDDM ships, and a wallet password equal to the login password). Any provider of `org.freedesktop.secrets` works (e.g. gnome-keyring) if you swap the command | https://invent.kde.org/frameworks/kwallet |
 | WirePlumber (`wpctl`) + PipeWire | Volume / mute keys (`XF86Audio*`) in `modules/keybinds.lua` | https://pipewire.pages.freedesktop.org/wireplumber/ |
 | hypridle | Autostarted in `modules/autostarts.lua`; reads `hypridle.conf` (screen off after 5 min, lock before sleep) | https://wiki.hypr.land/Hypr-Ecosystem/hypridle/ |
 | hyprlock | `lock_cmd` in `hypridle.conf`. No `hyprlock.conf` is tracked here, so it runs with its defaults | https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/ |
@@ -26,7 +27,7 @@ Install commands (copied from the linked docs for convenience; if they disagree,
 ```sh
 # Arch / CachyOS
 sudo pacman -S --needed hyprland ghostty thunar pipewire wireplumber \
-  hypridle hyprlock awww quickshell swaync hyprpolkitagent
+  hypridle hyprlock awww quickshell swaync hyprpolkitagent kwallet kwallet-pam
 yay -S vicinae-bin   # AUR, or any AUR helper
 
 # Other distros: follow the Hyprland installation page. Most distro packages
@@ -63,7 +64,7 @@ yay -S pipeweaver   # AUR, or any AUR helper
 
 ```sh
 Hyprland --version | head -1   # needs v0.55 or later
-for c in Hyprland ghostty thunar vicinae wpctl hypridle hyprlock loginctl awww-daemon qs swaync; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
+for c in Hyprland ghostty thunar vicinae kwalletd6 wpctl hypridle hyprlock loginctl awww-daemon qs swaync; do command -v "$c" >/dev/null && echo "$c ok" || echo "$c MISSING"; done
 systemctl --user cat hyprpolkitagent.service >/dev/null 2>&1 && echo "hyprpolkitagent ok" || echo "hyprpolkitagent MISSING"
 ```
 

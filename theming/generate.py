@@ -21,6 +21,7 @@ roles onto one app and adds whatever else that app needs:
     targets/kde.py       the KDE color scheme for KDE apps
     targets/zsh.py       ~/.dircolors and the Oh My Zsh prompt theme
     targets/btop.py      the btop theme
+    targets/vesktop.py   the Vesktop (Vencord) theme, built on Midnight
 
 Most outputs are named after the theme (e.g. btop/.../themes/<slug>.theme),
 so several themes can sit side by side and each app picks one. A few have a
@@ -40,9 +41,9 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import btop, ghostty, gtk, hyprland, kde, nvim, qtct, quickshell, vicinae, vscodium, zen, zsh  # noqa: E402
+from targets import btop, ghostty, gtk, hyprland, kde, nvim, qtct, quickshell, vesktop, vicinae, vscodium, zen, zsh  # noqa: E402
 
-TARGETS = (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qtct, gtk, kde, zsh, btop)
+TARGETS = (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qtct, gtk, kde, zsh, btop, vesktop)
 
 
 def main():
