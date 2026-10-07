@@ -6,6 +6,6 @@ import qs.config
 
 RoundButton {
   accent: Colors.accent
-  onClicked: PopupService.toggleLauncherCentered()
+  onClicked: LauncherService.toggleLauncherCentered()
   icon: "rocket_launch" 
 }

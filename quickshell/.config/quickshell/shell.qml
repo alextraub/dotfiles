@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 
 import qs.modules.status_bar
+import qs.ipc
 
 ShellRoot {
   id: root
