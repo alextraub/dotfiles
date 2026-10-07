@@ -10,6 +10,7 @@ return {
       { "<leader>f", group = "[F]ind", mode = { "n", "v" } }, -- Telescope pickers
       { "<leader>t", group = "[T]oggle" },
       { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } }, -- gitsigns on_attach keymaps
+      { "<leader>g", group = "[G]it" }, -- fugitive keymaps
       { "gr", group = "LSP Actions", mode = { "n" } },
     },
   },
