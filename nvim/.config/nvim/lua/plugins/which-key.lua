@@ -11,6 +11,7 @@ return {
       { "<leader>t", group = "[T]oggle" },
       { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } }, -- gitsigns on_attach keymaps
       { "<leader>g", group = "[G]it" }, -- fugitive keymaps
+      { "<leader>l", group = "[L]ine numbers" },
       { "gr", group = "LSP Actions", mode = { "n" } },
     },
   },

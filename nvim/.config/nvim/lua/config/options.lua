@@ -1,6 +1,5 @@
 vim.opt.number = true
 vim.opt.cursorline = true
-vim.opt.relativenumber = true
 
 -- tabs
 local tab_size = 2

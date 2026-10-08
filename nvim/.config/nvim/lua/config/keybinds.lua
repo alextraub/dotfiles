@@ -12,6 +12,10 @@ vim.keymap.set("n", "<Down>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Left>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Right>", "<Nop>", { silent = true })
 
+vim.keymap.set('n', '<leader>ln', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end, { desc = 'Toggle relative [l]ine [n]umbers' })
+
 -- Diagnostic Config & Keymaps
 --  See `:help vim.diagnostic.Opts`
 vim.diagnostic.config {
