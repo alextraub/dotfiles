@@ -18,7 +18,7 @@ local WORKSPACES = {
 local APPS = {
 }
 
--- Read by Quickshell (services/MonitorRoles.qml) to tell which screen is main
+-- Read by Quickshell (services/Displays.qml) to tell which screen is main
 local STATE_DIR  = (os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")) .. "/hypr"
 local STATE_FILE = STATE_DIR .. "/monitor-roles.json"
 

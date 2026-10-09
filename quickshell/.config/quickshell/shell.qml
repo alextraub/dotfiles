@@ -12,7 +12,7 @@ ShellRoot {
 
     Scope {
       id: self
-      required property var modelData
+      required property ShellScreen modelData
 
       StatusBar { screen: self.modelData }
     }

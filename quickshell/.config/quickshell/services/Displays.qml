@@ -2,6 +2,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import Quickshell.Hyprland
 
 // Which screen is "main" and which is "side". Hyprland's modules/roles.lua writes
 // this file at startup and whenever SUPER + X swaps the monitors.
@@ -31,4 +32,14 @@ Singleton {
     onFileChanged: reload()
     onLoaded: root._parse(text())
   }
+
+  property string targetName: Quickshell.screens[0].name
+
+  function syncTarget() {
+    const focused = Hyprland.focusedMonitor
+
+    targetName = focused != null ? focused.name : Quickshell.screens[0].name
+  }
+
+  Component.onCompleted: syncTarget()
 }
