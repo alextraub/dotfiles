@@ -12,20 +12,16 @@ roles onto one app and adds whatever else that app needs:
     targets/nvim.py      colors/<snake>.lua and the lualine theme
     targets/vscodium.py  the VSCodium color theme extension
     targets/ghostty.py   the Ghostty theme
-    targets/quickshell.py  config/colors.json and config/Colors.qml for Quickshell
+    targets/quickshell.py  config/Colors.qml for Quickshell (follows caelestia's scheme)
     targets/vicinae.py   the Vicinae launcher theme
-    targets/hyprland.py  modules/colors.lua for Hyprland
     targets/zen.py       userChrome.css, userContent.css and user.js for Zen Browser
-    targets/qtct.py      the qt5ct and qt6ct color schemes for Qt apps
-    targets/gtk.py       GTK 3 and GTK 4 gtk.css color overrides
-    targets/kde.py       the KDE color scheme for KDE apps
     targets/zsh.py       ~/.dircolors and the Oh My Zsh prompt theme
-    targets/btop.py      the btop theme
     targets/vesktop.py   the Vesktop (Vencord) theme, built on Midnight
+    targets/caelestia.py the caelestia-cli color scheme (drives Hyprland's colors)
 
-Most outputs are named after the theme (e.g. btop/.../themes/<slug>.theme),
+Most outputs are named after the theme (e.g. ghostty/.../themes/<Name>),
 so several themes can sit side by side and each app picks one. A few have a
-fixed path (gtk.css, Hyprland colors.lua, Quickshell colors.json, .dircolors)
+fixed path (Quickshell Colors.qml, .dircolors)
 and hold whichever theme was generated last.
 
 Generated files are overwritten on every run, so edit the theme file or the
@@ -41,9 +37,9 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import btop, ghostty, gtk, hyprland, kde, nvim, qtct, quickshell, vesktop, vicinae, vscodium, zen, zsh  # noqa: E402
+from targets import caelestia, ghostty, nvim, quickshell, vesktop, vicinae, vscodium, zen, zsh  # noqa: E402
 
-TARGETS = (nvim, vscodium, ghostty, quickshell, vicinae, hyprland, zen, qtct, gtk, kde, zsh, btop, vesktop)
+TARGETS = (nvim, vscodium, ghostty, quickshell, vicinae, zen, zsh, vesktop, caelestia)
 
 
 def main():

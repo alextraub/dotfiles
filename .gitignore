@@ -1,5 +1,3 @@
-# Machine-specific Hyprland overrides, see hyprland/.config/hypr/settings.lua
-hyprland/.config/hypr/locals.lua
 quickshell/.config/quickshell/.qmlls.ini
 __pycache__
 
@@ -13,3 +11,6 @@ vesktop/.config/*
 !vesktop/.config/vesktop/
 vesktop/.config/vesktop/*
 !vesktop/.config/vesktop/themes/
+
+# Written by caelestia-cli on every scheme change; hyprland.lua seeds it from scheme/default.lua
+hyprland/.config/hypr/scheme/current.lua

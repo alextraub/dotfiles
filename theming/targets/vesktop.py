@@ -5,6 +5,9 @@ file only @imports its build and sets its color variables, the way Midnight's
 own midnight.theme.css does. The layout options keep Midnight's defaults
 (version 2.1.1); see https://github.com/refact0r/midnight-discord for what
 each one does.
+
+caelestia-cli writes its own Vesktop theme too unless enableDiscord is false in
+caelestia/.config/caelestia/cli.json, which it is.
 """
 from palette import alpha, blend
 

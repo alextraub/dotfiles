@@ -5,53 +5,47 @@ import QtQuick
 import Quickshell.Io
 
 Singleton {
+  id: root
+
+  // caelestia's colours map (key -> hex without #), empty until the file loads
+  property var scheme: ({})
+
   FileView {
-    path: Quickshell.shellDir + "/config/colors.json"
+    path: (Quickshell.env("XDG_STATE_HOME") || Quickshell.env("HOME") + "/.local/state") + "/caelestia/scheme.json"
     watchChanges: true
     onFileChanged: reload()
-
-    JsonAdapter {
-      id: palette
-
-      property color bg0: "#19191f"
-      property color bg1: "#1f1f26"
-      property color bg2: "#292930"
-      property color bg3: "#33333c"
-      property color bg4: "#42424d"
-      property color fg: "#e7e2e3"
-      property color red: "#f17070"
-      property color orange: "#faa365"
-      property color yellow: "#f5d983"
-      property color green: "#94e997"
-      property color marker: "#9ff8a5"
-      property color aqua: "#89edd7"
-      property color blue: "#81b7fd"
-      property color purple: "#bb92e9"
-      property color gray0: "#68666c"
-      property color gray1: "#7f7680"
-      property color gray2: "#958595"
+    onLoaded: {
+      try {
+        root.scheme = JSON.parse(text()).colours || {}
+      } catch (e) {
+        console.warn("Colors: can't parse " + path + ": " + e)
+      }
     }
   }
 
-  readonly property color bg0: palette.bg0
-  readonly property color bg1: palette.bg1
-  readonly property color bg2: palette.bg2
-  readonly property color bg3: palette.bg3
-  readonly property color bg4: palette.bg4
-  readonly property color fg: palette.fg
-  readonly property color red: palette.red
-  readonly property color orange: palette.orange
-  readonly property color yellow: palette.yellow
-  readonly property color green: palette.green
-  readonly property color marker: palette.marker
-  readonly property color aqua: palette.aqua
-  readonly property color blue: palette.blue
-  readonly property color purple: palette.purple
-  readonly property color gray0: palette.gray0
-  readonly property color gray1: palette.gray1
-  readonly property color gray2: palette.gray2
+  function pick(key, fallback) {
+    const hex = scheme[key]
+    return hex ? "#" + hex : fallback
+  }
 
-  readonly property color accent: purple
+  readonly property color bg0: pick("mantle", "#19191f")
+  readonly property color bg1: pick("base", "#1f1f26")
+  readonly property color bg2: pick("surface0", "#292930")
+  readonly property color bg3: pick("surface1", "#33333c")
+  readonly property color bg4: pick("surface2", "#42424d")
+  readonly property color fg: pick("text", "#e7e2e3")
+  readonly property color red: pick("red", "#f17070")
+  readonly property color orange: pick("peach", "#faa365")
+  readonly property color yellow: pick("yellow", "#f5d983")
+  readonly property color green: pick("green", "#94e997")
+  readonly property color marker: pick("term10", "#9ff8a5")
+  readonly property color aqua: pick("teal", "#89edd7")
+  readonly property color blue: pick("blue", "#81b7fd")
+  readonly property color purple: pick("mauve", "#bb92e9")
+  readonly property color accent: pick("primary", "#bb92e9")
+  readonly property color gray0: pick("overlay0", "#68666c")
+  readonly property color gray1: pick("overlay1", "#7f7680")
+  readonly property color gray2: pick("overlay2", "#958595")
 
   function tint(c) {
     return Qt.alpha(c, 0.18)

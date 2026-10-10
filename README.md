@@ -27,21 +27,19 @@ Every package has a `DEPENDENCIES.md` listing the prerequisites, with links to t
 | `zsh` | `~/.zshrc`, `~/.dircolors` and the Wisteria Dusk prompt theme in `~/.oh-my-zsh/custom/themes/` (stow with `--no-folding`) | [zsh/DEPENDENCIES.md](zsh/DEPENDENCIES.md) |
 | `nvim` | `~/.config/nvim` | [nvim/DEPENDENCIES.md](nvim/DEPENDENCIES.md) |
 | `hyprland` | `~/.config/hypr` | [hyprland/DEPENDENCIES.md](hyprland/DEPENDENCIES.md) |
+| `caelestia` | `~/.config/caelestia` (caelestia-cli config, Hyprland overrides) and the generated color schemes in `~/.local/share/caelestia/schemes/` | [caelestia/DEPENDENCIES.md](caelestia/DEPENDENCIES.md) |
 | `ghostty` | `~/.config/ghostty` | [ghostty/DEPENDENCIES.md](ghostty/DEPENDENCIES.md) |
 | `quickshell` | `~/.config/quickshell` | [quickshell/DEPENDENCIES.md](quickshell/DEPENDENCIES.md) |
 | `vicinae` | Wisteria Dusk theme in `~/.local/share/vicinae/themes/` (stow with `--no-folding`) | [vicinae/DEPENDENCIES.md](vicinae/DEPENDENCIES.md) |
 | `vscodium` | Wisteria Dusk theme files in `~/.vscode-oss/extensions/` (stow with `--no-folding`) | [vscodium/DEPENDENCIES.md](vscodium/DEPENDENCIES.md) |
 | `zen` | Wisteria Dusk browser theme in `~/.config/zen/wisteria-dusk/`, then linked into the Zen profile (stow with `--no-folding`) | [zen/DEPENDENCIES.md](zen/DEPENDENCIES.md) |
-| `qt6ct` | Wisteria Dusk color scheme in `~/.config/qt6ct/colors/` (stow with `--no-folding`) | [qt6ct/DEPENDENCIES.md](qt6ct/DEPENDENCIES.md) |
-| `qt5ct` | Wisteria Dusk color scheme in `~/.config/qt5ct/colors/` (stow with `--no-folding`) | [qt5ct/DEPENDENCIES.md](qt5ct/DEPENDENCIES.md) |
-| `gtk` | Wisteria Dusk `gtk.css` in `~/.config/gtk-3.0/` and `~/.config/gtk-4.0/` (stow with `--no-folding`) | [gtk/DEPENDENCIES.md](gtk/DEPENDENCIES.md) |
-| `kde` | Wisteria Dusk color scheme in `~/.local/share/color-schemes/` (stow with `--no-folding`) | [kde/DEPENDENCIES.md](kde/DEPENDENCIES.md) |
-| `btop` | Wisteria Dusk theme in `~/.config/btop/themes/` (stow with `--no-folding`) | [btop/DEPENDENCIES.md](btop/DEPENDENCIES.md) |
 | `vesktop` | Wisteria Dusk Discord theme (built on Midnight) in `~/.config/vesktop/themes/` (stow with `--no-folding`) | [vesktop/DEPENDENCIES.md](vesktop/DEPENDENCIES.md) |
 
-`theming/` is not a package. `theming/themes/` holds one JSON file per theme (currently Wisteria Dusk), and `python3 theming/generate.py --theme <slug>` writes the Neovim, VSCodium, Ghostty, Vicinae, Zen, qt5ct, qt6ct, GTK and KDE themes, `~/.dircolors`, the zsh prompt theme, the btop theme and the Vesktop theme, the Hyprland `modules/colors.lua` and the Quickshell `config/colors.json` and `config/Colors.qml` from it. Per-app details live in `theming/targets/`.
+`theming/` is not a package. `theming/themes/` holds one JSON file per theme (currently Wisteria Dusk), and `python3 theming/generate.py --theme <slug>` writes the Neovim, VSCodium, Ghostty, Vicinae and Zen themes, `~/.dircolors`, the zsh prompt theme, the Vesktop theme, the Quickshell `config/Colors.qml` (which follows caelestia's active scheme at runtime) and the caelestia-cli scheme (applied with `caelestia scheme set`, which also sets Hyprland's colors) from it. Per-app details live in `theming/targets/`.
 
-To add a theme, copy `theming/themes/wisteria-dusk.json`, change its name and colors, and point every role at one of your colors. `theming/palette.py` lists the roles and what each is used for, and the generator stops with a list of anything missing. Theme-named outputs (btop, Ghostty, Neovim, qt5ct/qt6ct, KDE, Vesktop, Vicinae, VSCodium, Zen, the zsh prompt) sit next to the other themes' and are picked in each app; `gtk.css`, Hyprland `colors.lua`, Quickshell's colors and `.dircolors` always hold the theme generated last.
+caelestia-cli themes the rest from that scheme: Hyprland's borders and shadows, GTK (`gtk.css` plus the adw-gtk3 theme), Qt through qtengine with the Darkly style (Dolphin uses the same colors as a KDE color scheme), btop and fuzzel. Quickshell's bar also follows it live. `caelestia/.config/caelestia/cli.json` turns off everything else caelestia could write; terminal colors and Vesktop stay with the repo's own Ghostty and Vesktop themes. See [caelestia/DEPENDENCIES.md](caelestia/DEPENDENCIES.md).
+
+To add a theme, copy `theming/themes/wisteria-dusk.json`, change its name and colors, and point every role at one of your colors. `theming/palette.py` lists the roles and what each is used for, and the generator stops with a list of anything missing. Theme-named outputs (Ghostty, Neovim, Vesktop, Vicinae, VSCodium, Zen, the zsh prompt, the caelestia scheme) sit next to the other themes' and are picked in each app; Quickshell's fallback colors and `.dircolors` always hold the theme generated last.
 
 ## Setup on a new machine
 

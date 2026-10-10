@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "enableCava": false,
+    "enableChromium": false,
+    "enableDiscord": false,
+    "enableHtop": false,
+    "enableNvtop": false,
+    "enablePandora": false,
+    "enableSpicetify": false,
+    "enableTerm": false,
+    "enableWarp": false,
+    "enableZed": false,
+    "iconTheme": "breeze-dark"
+  }
+}
