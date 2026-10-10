@@ -1,23 +1,34 @@
 command = zsh
-shell-integration = none
-confirm-close-surface = false
-theme = Wisteria Dusk
 
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+keybind = shift+enter=text:\n
+
+# Terminal features
+confirm-close-surface = false
+copy-on-select = false
+
+# Font
 font-family = JetBrainsMono Nerd Font
 font-size = 18
 
-# The native cursor is hidden; shaders/cursor-pulse.glsl draws it instead,
-# growing out from its center and shrinking back.
+# Custom shaders
+custom-shader = shaders/cursor-pulse.glsl
+custom-shader-animation = true
+
+# Cursor
 cursor-style = block
 cursor-style-blink = false
 cursor-opacity = 0
 cursor-text = cell-foreground
-custom-shader = shaders/cursor-pulse.glsl
-custom-shader-animation = true
 
+# Disable in-app Ghostty toast notifications
+app-notifications = false
+
+# Window
 background-opacity = 0.75
-
-
+scrollbar = never
 window-save-state = never
 window-width = 78
 window-height = 23
@@ -26,4 +37,11 @@ window-padding-y = 24
 window-decoration = false
 window-theme = auto
 
-scrollbar = never
+# Key bindings for common actions
+keybind = ctrl+t=new_tab
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# Theme
+theme = Wisteria Dusk
