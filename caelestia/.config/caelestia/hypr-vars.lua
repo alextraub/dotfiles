@@ -27,7 +27,6 @@ return {
         "until busctl --user status org.freedesktop.secrets >/dev/null 2>&1; do sleep 0.2; done; vicinae server",
         "pipeweaver-daemon --background",
         "awww-daemon",
-        "swaync",
     },
 
     ------------------

@@ -1,18 +1,8 @@
 {
-    "appearance": {
-        "transparency": {
-            "enabled": false
-        }
-    },
-    "background": {
-        "wallpaperEnabled": false
-    },
-    "general": {
-        "apps": {
-            "terminal": [
-                "/usr/bin/ghostty",
-                "--gtk-single-instance=true"
-            ]
-        }
-    }
+  "background": {
+    "wallpaperEnabled": false
+  },
+  "launcher": {
+    "command": ["hyprctl", "dispatch", "(function() require('modules.launcher').toggle({ center = true }) end)"]
+  }
 }
