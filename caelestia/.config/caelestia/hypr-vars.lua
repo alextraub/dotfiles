@@ -45,6 +45,10 @@ return {
     kbWindowDecreaseWidth      = { "SUPER + ALT + Left" },
     kbWindowIncreaseWidth      = { "SUPER + ALT + Right" },
 
+    -- Launcher. Empty turns off upstream's caelestia launcher bind: modules/keybinds.lua binds
+    -- a SUPER tap to Vicinae instead
+    kbLauncher                 = "",
+
     -- Apps
     kbTerminal                 = "SUPER + Return",
 }

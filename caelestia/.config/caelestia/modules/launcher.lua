@@ -1,6 +1,6 @@
 -- Vicinae opens with the cursor in its search bar when the whole window fits on the cursor's
 -- monitor that way. Otherwise the cursor becomes one corner of the window, picking the corner
--- that keeps it on the monitor. Opened with { center = true } (the status bar button), it goes
+-- that keeps it on the monitor. Opened with { center = true }, it goes
 -- in the middle of the cursor's monitor instead. Can be dragged around with SUPER + LMB while open, and closes
 -- when you click another window.
 -- Needs launcher_window.layer_shell.enabled = false in Vicinae's settings, so it is a normal
@@ -106,8 +106,6 @@ hl.on("window.active", function(w)
   if hl.get_window("class:^" .. CLASS .. "$") then hl.exec_cmd("vicinae close") end
 end)
 
--- open, close and toggle are also what Quickshell calls (over Hyprland's socket, see
--- PopupService.qml), so the guards here apply however the launcher is opened.
 -- Opens it unless the window already exists or is on its way, in which case it does nothing.
 -- opts.center puts it in the middle of the cursor's monitor instead of at the cursor. Anything
 -- that isn't a table (e.g. whatever a keybind passes) counts as no options.
@@ -129,11 +127,6 @@ end
 -- closing when it thinks it lost focus, which a SUPER + drag makes it think for the next few presses
 M.toggle = function(opts)
   if hl.get_window("class:^" .. CLASS .. "$") then M.close() else M.open(opts) end
-end
-
--- For the status bar button, which can only name a function to call
-M.toggle_centered = function()
-  M.toggle({ center = true })
 end
 
 -- Registers fn(open) to run whenever the launcher opens (open = true) or closes (open = false).
