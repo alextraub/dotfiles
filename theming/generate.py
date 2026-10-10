@@ -12,7 +12,6 @@ roles onto one app and adds whatever else that app needs:
     targets/nvim.py      colors/<snake>.lua and the lualine theme
     targets/vscodium.py  the VSCodium color theme extension
     targets/ghostty.py   the Ghostty theme
-    targets/quickshell.py  config/Colors.qml for Quickshell (follows caelestia's scheme)
     targets/vicinae.py   the Vicinae launcher theme
     targets/zen.py       userChrome.css, userContent.css and user.js for Zen Browser
     targets/zsh.py       ~/.dircolors and the Oh My Zsh prompt theme
@@ -21,8 +20,7 @@ roles onto one app and adds whatever else that app needs:
 
 Most outputs are named after the theme (e.g. ghostty/.../themes/<Name>),
 so several themes can sit side by side and each app picks one. A few have a
-fixed path (Quickshell Colors.qml, .dircolors)
-and hold whichever theme was generated last.
+fixed path (.dircolors) and hold whichever theme was generated last.
 
 Generated files are overwritten on every run, so edit the theme file or the
 target module, never the output.
@@ -37,9 +35,9 @@ sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True  # keep __pycache__ out of the repo
 
 import palette  # noqa: E402
-from targets import caelestia, ghostty, nvim, quickshell, vesktop, vicinae, vscodium, zen, zsh  # noqa: E402
+from targets import caelestia, ghostty, nvim, vesktop, vicinae, vscodium, zen, zsh  # noqa: E402
 
-TARGETS = (nvim, vscodium, ghostty, quickshell, vicinae, zen, zsh, vesktop, caelestia)
+TARGETS = (nvim, vscodium, ghostty, vicinae, zen, zsh, vesktop, caelestia)
 
 
 def main():

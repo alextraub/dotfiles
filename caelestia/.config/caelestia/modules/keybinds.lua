@@ -8,7 +8,6 @@ hl.bind(mainMod .. " + equal", zoomBy(0.5),  { repeating = true })
 hl.bind(mainMod .. " + minus", zoomBy(-0.5), { repeating = true })
 
 hl.bind(mainMod .. " + Space", openLauncher)
-hl.bind(mainMod .. " + GRAVE", hl.dsp.exec_cmd("qs ipc call controlCenter toggle"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + SHIFT + Tab", swapMonitors)
 

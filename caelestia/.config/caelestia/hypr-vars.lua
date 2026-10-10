@@ -10,10 +10,6 @@ return {
     terminal                   = "ghostty",
     browser                    = "zen-browser",
 
-    -- Shell
-    shellCmd                   = "qs",
-    shellKillCmd               = "qs kill",
-
     -- Window styling
     activeWindowBorderColour   = { colors = { "rgb(" .. scheme.primary .. ")", "rgb(" .. scheme.secondary .. ")" }, angle = 45 },
     inactiveWindowBorderColour = "rgba(" .. scheme.surfaceContainerHighest .. "ab)",

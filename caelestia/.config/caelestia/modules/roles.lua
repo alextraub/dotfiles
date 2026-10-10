@@ -18,7 +18,7 @@ local WORKSPACES = {
 local APPS = {
 }
 
--- Read by Quickshell (services/Displays.qml) to tell which screen is main
+-- Remembers the swap across config reloads (see readSwapped and hyprland.start below)
 local STATE_DIR  = (os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")) .. "/hypr"
 local STATE_FILE = STATE_DIR .. "/monitor-roles.json"
 

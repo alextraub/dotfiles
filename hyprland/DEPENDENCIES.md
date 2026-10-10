@@ -17,7 +17,7 @@ The config is caelestia's Hyprland config (`hypr/` in https://github.com/caelest
 | Thunar | `fileExplorer` in `variables.lua`, bound to `SUPER + E` | https://docs.xfce.org/xfce/thunar/start |
 | pwvucontrol | `audioSettings` in `variables.lua`, bound to `CTRL + ALT + V` | https://github.com/saivert/pwvucontrol |
 | WirePlumber (`wpctl`) + PipeWire | Volume and mute keys (`XF86Audio*`, `SUPER + SHIFT + M`) in `hyprland/keybinds.lua` | https://pipewire.pages.freedesktop.org/wireplumber/ |
-| Quickshell (`qs`) | Status bar, started as `shellCmd` from `hypr-vars.lua` (run by `hyprland/execs.lua`; `shellKillCmd` and `shellCmd` also drive the restart binds in `hyprland/keybinds.lua`). Its config is the `quickshell` package; stow that too | https://quickshell.org/docs/guide/install-setup/ |
+| caelestia-shell + Quickshell (`qs`, the `quickshell-git` AUR package) | Desktop shell, started at login by `shellCmd` from `variables.lua` (`caelestia shell -d`, run by `hyprland/execs.lua`; `shellKillCmd` and `shellCmd` also drive the restart binds in `hyprland/keybinds.lua`). Also handles the `caelestia:*` global binds in `hyprland/keybinds.lua`: launcher (`SUPER`), session menu (`CTRL + ALT + Delete`), sidebar (`SUPER + N`), lock (`SUPER + L`), region screenshots (`SUPER + SHIFT + S`), brightness keys (`XF86MonBrightness*`) and media keys (`XF86Audio{Play,Pause,Next,Prev,Stop}`, `CTRL + SUPER + Space/Equal/Minus/Backspace`). Its source is the `quickshell` package's `caelestia` submodule; stow that too. AUR on Arch | https://github.com/caelestia-dots/shell |
 | hyprpolkitagent | Polkit agent picked by `polkitAgentCmd` in `hypr-vars.lua` (started in `hyprland/execs.lua`), for password prompts from apps that need elevated rights. The command runs `systemctl --user reset-failed` first: when Hyprland restarts without a full logout, the unit keeps restarting with no compositor, hits systemd's start limit, and would otherwise refuse to start in the new session | https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent/ |
 | gnome-keyring | `gnome-keyring-daemon --start --components=secrets` in `hyprland/execs.lua`. Provides the D-Bus Secret Service that `vicinae server` waits for in the `autostarts` list in `hypr-vars.lua`; Vicinae aborts at startup (`Database keychain unavailable`) without one. Unlocked with the login password by `pam_gnome_keyring.so` in the login manager's PAM file (SDDM ships it) | https://wiki.gnome.org/Projects/GnomeKeyring |
 | Vicinae | `vicinae server` from the `autostarts` list in `hypr-vars.lua`; opened and closed by the `SUPER + Space` toggle in the caelestia package's `modules/launcher.lua`, which also places it at the cursor and closes it on outside clicks. That needs `"launcher_window": { "layer_shell": { "enabled": false } }` in `~/.config/vicinae/settings.json` (not tracked). AUR on Arch (`vicinae-bin`) | https://vicinae.com/docs |
@@ -35,8 +35,8 @@ Install commands (copied from the linked docs for convenience; if they disagree,
 ```sh
 # Arch / CachyOS
 sudo pacman -S --needed hyprland ghostty thunar pipewire wireplumber pwvucontrol \
-  hypridle hyprlock awww quickshell swaync hyprpolkitagent gnome-keyring
-yay -S caelestia-cli vicinae-bin zen-browser-bin vscodium-bin qtengine darkly-qt6-git   # AUR, or any AUR helper
+  hypridle hyprlock awww swaync hyprpolkitagent gnome-keyring
+yay -S aur/quickshell-git caelestia-shell caelestia-cli vicinae-bin zen-browser-bin vscodium-bin qtengine darkly-qt6-git   # AUR, or any AUR helper
 NO_AT_BRIDGE=1 yay -S --removemake sweet-cursors-git   # long Inkscape build, see the table
 
 # Other distros: follow the Hyprland installation page. Most distro packages
@@ -47,7 +47,6 @@ NO_AT_BRIDGE=1 yay -S --removemake sweet-cursors-git   # long Inkscape build, se
 
 | Dependency | Why | Install docs |
 |---|---|---|
-| caelestia-shell | The `caelestia:*` global binds in `hyprland/keybinds.lua` are handled by the caelestia shell, not Quickshell's config here: launcher (`SUPER`), session menu (`CTRL + ALT + Delete`), sidebar (`SUPER + N`), lock (`SUPER + L`), region screenshots (`SUPER + SHIFT + S`), brightness keys (`XF86MonBrightness*`) and media keys (`XF86Audio{Play,Pause,Next,Prev,Stop}`, `CTRL + SUPER + Space/Equal/Minus/Backspace`). Without it they do nothing | https://github.com/caelestia-dots/shell |
 | hyprshutdown | `SUPER + SHIFT + E` in the caelestia package's `modules/keybinds.lua` uses it for a graceful exit; falls back to `hyprctl dispatch 'hl.dsp.exit()'` without it | https://github.com/hyprwm/hyprshutdown |
 | hyprpicker | Color picker on `SUPER + SHIFT + C` in `hyprland/keybinds.lua` | https://wiki.hypr.land/Hypr-Ecosystem/hyprpicker/ |
 | ydotool | Types the latest clipboard entry on `CTRL + SHIFT + ALT + V` in `hyprland/keybinds.lua` | https://github.com/ReimuNotMoe/ydotool |
@@ -66,7 +65,7 @@ NO_AT_BRIDGE=1 yay -S --removemake sweet-cursors-git   # long Inkscape build, se
 # Arch / CachyOS
 sudo pacman -S --needed hyprpicker ydotool libnotify trash-cli gammastep geoclue bluez-utils \
   foot fish btop qt5-wayland qt6-wayland gvfs hyprpaper hyprshutdown
-yay -S caelestia-shell pipeweaver   # AUR, or any AUR helper
+yay -S pipeweaver   # AUR, or any AUR helper
 ```
 
 ## Verify

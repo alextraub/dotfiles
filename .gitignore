@@ -1,4 +1,3 @@
-quickshell/.config/quickshell/.qmlls.ini
 __pycache__
 
 # Vesktop writes session data and logins next to its config; only track the
