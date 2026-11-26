@@ -1,0 +1,15 @@
+[submodule "ghostty"]
+	path = ghostty
+	url = https://github.com/alextraub/dotfiles-ghostty.git
+[submodule "hyprland"]
+	path = hyprland
+	url = https://github.com/alextraub/dotfiles-hyprland.git
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/alextraub/dotfiles-nvim.git
+[submodule "theming"]
+	path = theming
+	url = https://github.com/alextraub/dotfiles-theming.git
+[submodule "zsh"]
+	path = zsh
+	url = https://github.com/alextraub/dotfiles-zsh.git
